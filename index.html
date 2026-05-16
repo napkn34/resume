@@ -1,0 +1,1093 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>심동휘 — 이력서 · 경력기술서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ─── tokens ─── */
+:root{
+  --cyan:#2BC9D9;
+  --teal-line:#00C8C0;
+  --teal-text:#008F8A;
+  --teal-soft:#E6FAFA;
+  --navy:#1C3A6B;
+  --navy-2:#2849A0;
+  --navy-dark:#0F2347;
+  --surface:#F7FAFF;
+  --body:#24324A;
+  --muted:#4A5E77;
+  --line:#D8E2F0;
+  --line-soft:#E8EEF6;
+  --bg-doc:#DCE3EC;
+  --paper:#FFFFFF;
+  --shadow-paper:0 4px 24px rgba(15,30,60,.16), 0 1px 4px rgba(15,30,60,.06);
+}
+
+*{-webkit-font-smoothing:antialiased}
+html,body{font-family:"Noto Sans KR","Inter","Apple SD Gothic Neo","Malgun Gothic",ui-sans-serif,system-ui,-apple-system,sans-serif;color:var(--body);background:var(--bg-doc);scroll-behavior:smooth;line-height:1.6}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+
+a{color:var(--teal-text);text-decoration:none;font-weight:600;border-bottom:1px solid transparent;transition:border-color .15s}
+a:hover{border-color:var(--teal-line)}
+
+/* ─── top nav ─── */
+.topnav{position:sticky;top:0;z-index:50;background:rgba(220,227,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(28,58,107,.1)}
+.topnav-inner{max-width:1100px;margin:0 auto;padding:.7rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--cyan) 0%,var(--navy) 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.85rem}
+.brand-name{font-weight:700;color:var(--navy);font-size:.88rem;letter-spacing:-.01em}
+.brand-sub{font-size:.66rem;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.topnav nav{display:flex;align-items:center;gap:1.2rem}
+.topnav nav a{color:var(--muted);font-size:.8rem;font-weight:500;border:none}
+.topnav nav a:hover{color:var(--navy)}
+.print-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .85rem;border-radius:9999px;border:1px solid var(--line);background:#fff;font-size:.75rem;font-weight:600;color:var(--navy);cursor:pointer;transition:all .15s}
+.print-btn:hover{border-color:var(--teal-line);color:var(--teal-text)}
+
+/* ─── document / A4 page system ─── */
+.doc-bg{
+  padding:2.4rem 1rem 4rem;
+  background:linear-gradient(180deg,rgba(28,58,107,.04) 0%,transparent 80px),var(--bg-doc);
+  min-height:100vh;
+}
+.a4-page{
+  width:210mm;
+  min-height:297mm;
+  margin:0 auto 1.6rem;
+  padding:14mm 16mm 18mm;
+  background:var(--paper);
+  box-shadow:var(--shadow-paper);
+  position:relative;
+  overflow:hidden;
+  break-after:page;
+  page-break-after:always;
+  border-radius:2px;
+}
+.a4-page:last-child{margin-bottom:0;break-after:auto;page-break-after:auto}
+
+/* subtle top bar — only on internal pages */
+.a4-page.with-top-bar::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:var(--navy);opacity:.85;
+}
+
+/* page footer */
+.page-foot{
+  position:absolute;left:16mm;right:16mm;bottom:10mm;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:"JetBrains Mono",monospace;font-size:.62rem;color:var(--muted);
+  border-top:1px solid var(--line-soft);padding-top:3mm;
+}
+.page-foot-name{font-weight:700;color:var(--navy);letter-spacing:.04em}
+.page-foot-meta{opacity:.8}
+.page-foot-num{font-weight:700;color:var(--teal-text)}
+.page-foot-num em{font-style:normal;color:var(--muted);font-weight:500}
+.page-stamp{position:absolute;top:10mm;right:16mm;font-family:"JetBrains Mono",monospace;font-size:.6rem;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;font-weight:600;z-index:2}
+
+.section-anchor{scroll-margin-top:80px}
+
+/* ════════════════════════════════════════════
+   PAGE 1 HEADER (no ribbon, cleaner)
+   ════════════════════════════════════════════ */
+.cover-bar{
+  height:6px;width:80px;background:var(--navy);margin-bottom:1rem;border-radius:2px;
+  position:relative;
+}
+.cover-bar::after{
+  content:"";position:absolute;left:0;top:0;height:100%;width:30%;background:var(--teal-line);border-radius:2px;
+}
+
+.resume-header{
+  display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;
+  padding-bottom:.95rem;margin-bottom:1.1rem;border-bottom:1.5px solid var(--navy);
+}
+.avatar-circle{
+  width:88px;height:112px;border-radius:6px;
+  background:#F0F8FA;
+  border:2px solid #fff;
+  box-shadow:0 0 0 1.5px var(--line),0 4px 14px rgba(28,58,107,.10);
+  position:relative;overflow:hidden;flex-shrink:0
+}
+.avatar-circle img{width:100%;height:100%;object-fit:cover;display:block}
+.avatar-tag{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:.2rem .25rem;
+  background:linear-gradient(180deg,transparent 0%,rgba(15,30,60,.7) 100%);
+  font-family:"JetBrains Mono",monospace;font-size:.5rem;font-weight:700;
+  color:#fff;letter-spacing:.18em;text-transform:uppercase;text-align:center
+}
+
+.resume-header-name{
+  font-family:"Inter","Noto Sans KR",sans-serif;
+  font-size:2.4rem;font-weight:900;color:var(--navy);
+  letter-spacing:-.03em;line-height:1;
+  white-space:nowrap;display:block;margin-bottom:.45rem
+}
+.resume-header-role{
+  font-family:"Inter",sans-serif;font-size:.74rem;font-weight:700;color:var(--teal-text);
+  letter-spacing:.16em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.28rem .7rem;border-radius:9999px;
+  background:var(--teal-soft);border:1px solid #99DDD8;
+  white-space:nowrap;margin-bottom:.5rem
+}
+.resume-header-tagline{
+  font-size:.84rem;color:var(--body);line-height:1.55;font-weight:500;
+}
+.resume-header-tagline strong{color:var(--navy);font-weight:700}
+
+.resume-header-contact{
+  display:grid;grid-template-columns:auto;gap:.3rem;font-size:.74rem;color:var(--body);
+  min-width:170px;text-align:right;
+  font-family:"Inter","Noto Sans KR",sans-serif;
+  border-left:1px solid var(--line-soft);padding-left:1.2rem
+}
+.resume-header-contact > div{display:flex;align-items:center;justify-content:flex-end;gap:.4rem;line-height:1.4;white-space:nowrap}
+.resume-header-contact .label{color:var(--muted);font-weight:500;font-size:.66rem;letter-spacing:.04em;text-transform:uppercase}
+.resume-header-contact a{color:var(--body);font-weight:500;font-size:.74rem}
+.resume-header-contact a:hover{color:var(--teal-text)}
+
+/* ════════════════════════════════════════════
+   SECTION TITLES (toned down, navy primary)
+   ════════════════════════════════════════════ */
+.r-section{margin-bottom:1rem}
+.r-section:last-child{margin-bottom:0}
+.r-section-title{
+  font-family:"Inter","Noto Sans KR",sans-serif;
+  font-size:.88rem;font-weight:800;color:var(--navy);
+  letter-spacing:.16em;text-transform:uppercase;
+  margin-bottom:.6rem;
+  display:flex;align-items:center;gap:.7rem;
+  padding-bottom:.35rem;border-bottom:1px solid var(--line);
+}
+.r-section-title .ko{
+  font-family:"Noto Sans KR",sans-serif;font-size:.74rem;font-weight:500;
+  color:var(--muted);letter-spacing:.02em;text-transform:none;
+}
+.r-section-title .meta{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.66rem;color:var(--muted);font-weight:500;letter-spacing:.02em;text-transform:none}
+
+/* Intro paragraphs */
+.resume-intro{font-size:.86rem;color:var(--body);line-height:1.72;display:flex;flex-direction:column;gap:.78rem}
+.resume-intro strong{color:var(--navy);font-weight:700}
+.resume-intro .lead{font-size:.92rem;color:var(--navy);font-weight:600;line-height:1.55}
+.resume-intro em.k{color:var(--teal-text);font-style:normal;font-weight:700;background:var(--teal-soft);padding:.05rem .35rem;border-radius:3px}
+
+/* Highlights — compact numbered list */
+.hl-list{display:grid;grid-template-columns:1fr 1fr;gap:.35rem .9rem}
+.hl-item{display:grid;grid-template-columns:auto 1fr;gap:.5rem;align-items:start;padding:.32rem 0;border-bottom:1px dashed var(--line-soft)}
+.hl-item:nth-last-child(-n+2){border-bottom:none}
+.hl-num{
+  font-family:"Inter",sans-serif;font-weight:900;font-size:.85rem;
+  color:var(--teal-text);letter-spacing:-.02em;
+  min-width:1.4rem;line-height:1.3
+}
+.hl-text{font-size:.82rem;color:var(--body);line-height:1.6}
+.hl-text strong{color:var(--navy);font-weight:700}
+.hl-text em.k{color:var(--teal-text);font-style:normal;font-weight:700}
+
+/* Career entry */
+.r-entry{margin-bottom:.7rem}
+.r-entry:last-child{margin-bottom:0}
+.r-entry-head{
+  font-size:.9rem;font-weight:800;color:var(--navy);margin-bottom:.08rem;
+  display:flex;align-items:baseline;gap:.55rem;flex-wrap:wrap;letter-spacing:-.005em
+}
+.r-entry-bar{color:var(--line);font-weight:500;font-size:1rem}
+.r-entry-role{font-weight:500;color:var(--body);font-size:.82rem}
+.r-entry-period{
+  font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--muted);margin-bottom:.3rem;letter-spacing:.01em
+}
+.r-entry-period .tenure{
+  color:var(--teal-text);font-weight:700;margin-left:.45rem;
+  padding:.04rem .45rem;border-radius:9999px;background:var(--teal-soft);
+  font-size:.64rem
+}
+.r-entry-period .tenure-muted{background:var(--surface);color:var(--muted)}
+.r-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.3rem}
+.r-bullets li{font-size:.81rem;color:var(--body);line-height:1.55;padding-left:.9rem;position:relative}
+.r-bullets li::before{content:"·";position:absolute;left:.05rem;top:-.1rem;color:var(--teal-line);font-weight:900;font-size:1.2rem;line-height:1}
+.r-bullets li strong{color:var(--navy);font-weight:700}
+.r-bullets li em.k{color:var(--teal-text);font-style:normal;font-weight:700}
+
+/* 2-col body */
+.r-2col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.r-2col-narrow{display:grid;grid-template-columns:5fr 4fr;gap:1.6rem}
+
+/* Capabilities */
+.cap-list{display:flex;flex-direction:column;gap:.75rem}
+.cap-item{display:grid;grid-template-columns:30px 1fr;gap:.65rem;align-items:start}
+.cap-num{
+  display:flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;
+  background:var(--navy);color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:.74rem;
+  flex-shrink:0
+}
+.cap-body .cap-title{font-size:.88rem;font-weight:800;color:var(--navy);letter-spacing:-.005em;margin-bottom:.15rem}
+.cap-body .cap-desc{font-size:.8rem;color:var(--body);line-height:1.6}
+.cap-body .cap-desc strong{color:var(--navy);font-weight:700}
+
+/* Side Project */
+.sp-block{
+  background:var(--surface);border:1px solid var(--line);
+  padding:.95rem 1.15rem;border-radius:8px
+}
+.sp-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.4rem}
+.sp-title{font-size:.9rem;font-weight:800;color:var(--navy);letter-spacing:-.005em}
+.sp-meta{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--muted)}
+.sp-desc{font-size:.78rem;color:var(--body);line-height:1.6}
+.sp-desc strong{color:var(--navy);font-weight:700}
+.sp-stack{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.55rem}
+.sp-stack span{font-size:.66rem;font-weight:600;padding:.15rem .5rem;border-radius:9999px;background:#fff;border:1px solid var(--line);color:var(--navy)}
+.sp-stack span.lead{background:var(--teal-soft);border-color:#99DDD8;color:var(--teal-text)}
+
+/* Side Project mini-diagram (구현 도식) */
+.sp-diagram{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-top:.6rem;padding:.55rem;background:#fff;border:1px solid var(--line);border-radius:6px}
+.sp-diag-cell{padding:.4rem .45rem;border-radius:4px;background:var(--surface);border:1px solid var(--line-soft);text-align:left}
+.sp-diag-tag{font-family:"JetBrains Mono",monospace;font-size:.55rem;font-weight:700;color:var(--teal-text);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.15rem;display:block}
+.sp-diag-name{font-size:.7rem;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:.08rem}
+.sp-diag-desc{font-size:.62rem;color:var(--muted);line-height:1.35}
+.sp-diag-caption{font-size:.6rem;color:var(--muted);margin-top:.4rem;text-align:right;font-family:"JetBrains Mono",monospace;letter-spacing:.04em}
+
+/* Tools — context-based, no bars */
+.tools-list{display:grid;grid-template-columns:1fr;gap:.5rem}
+.tool-row{display:grid;grid-template-columns:108px 1fr;gap:.9rem;align-items:start;padding-bottom:.45rem;border-bottom:1px dashed var(--line-soft)}
+.tool-row:last-child{border-bottom:none}
+.tool-name{font-size:.84rem;font-weight:800;color:var(--navy);line-height:1.3}
+.tool-name .tag{display:block;font-family:"JetBrains Mono",monospace;font-size:.6rem;color:var(--muted);font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-top:.1rem}
+.tool-desc{font-size:.78rem;color:var(--body);line-height:1.58}
+
+/* Education entry */
+.r-edu-entry{margin-bottom:.55rem}
+.r-edu-entry:last-child{margin-bottom:0}
+.r-edu-head{font-size:.85rem;font-weight:800;color:var(--navy);margin-bottom:.05rem;letter-spacing:-.005em}
+.r-edu-period{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--muted)}
+.r-edu-note{font-size:.76rem;color:var(--body);line-height:1.5;margin-top:.1rem}
+.lang-badge{display:inline-block;font-size:.64rem;font-weight:700;padding:.08rem .45rem;border-radius:9999px;background:var(--teal-soft);color:var(--teal-text);margin-right:.3rem}
+.lang-badge-muted{background:var(--surface);color:var(--navy)}
+
+/* Personal mini-row */
+.personal-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;
+  padding-top:.7rem;margin-top:.8rem;border-top:1px dashed var(--line)
+}
+.personal-cell{font-size:.72rem;color:var(--body)}
+.personal-cell .label{display:block;font-size:.6rem;color:var(--muted);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.15rem}
+
+/* ════════════════════════════════════════════
+   CASE STUDY (compact + role + diagram)
+   ════════════════════════════════════════════ */
+.case-study{background:var(--paper);border-radius:8px;border:1px solid var(--line);overflow:hidden}
+.case-study-head{
+  background:var(--navy);color:#fff;padding:.85rem 1.3rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;position:relative;overflow:hidden
+}
+.case-study-tag{font-family:"JetBrains Mono",monospace;font-size:.6rem;color:rgba(255,255,255,.55);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:.18rem}
+.case-study-head-title{font-size:1rem;font-weight:800;letter-spacing:-.01em}
+.case-study-head-meta{font-size:.68rem;color:rgba(255,255,255,.7);margin-top:.2rem}
+.case-study-num{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);font-family:"Inter",sans-serif;font-weight:900;font-size:.92rem;color:#fff;flex-shrink:0}
+
+/* Role row */
+.case-role{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  padding:.65rem 1.3rem;background:var(--surface);border-bottom:1px solid var(--line-soft);
+}
+.case-role-cell{padding:0 .65rem;border-right:1px dashed var(--line);text-align:center}
+.case-role-cell:last-child{border-right:none}
+.case-role-label{font-size:.6rem;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.15rem}
+.case-role-val{font-size:.72rem;font-weight:700;color:var(--navy)}
+.case-role-val.lead{color:var(--teal-text)}
+
+.case-study-body{padding:1rem 1.3rem;display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.case-block{background:var(--surface);border-radius:6px;padding:.82rem 1rem;border:1px solid var(--line-soft)}
+.case-block.span2{grid-column:span 2}
+.case-block-label{font-size:.6rem;font-weight:800;color:var(--navy);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.38rem;display:flex;align-items:center;gap:.35rem}
+.case-block-label::before{content:"";display:inline-block;width:12px;height:1.5px;background:var(--teal-line)}
+.case-block-text{font-size:.79rem;color:var(--body);line-height:1.63}
+.case-block-text strong{color:var(--navy);font-weight:700}
+.case-block-text em.k{color:var(--teal-text);font-style:normal;font-weight:700}
+.case-block-text ul{padding:0;margin:.22rem 0 0;list-style:none}
+.case-block-text li{padding-left:.75rem;position:relative;margin-bottom:.18rem}
+.case-block-text li::before{content:"›";position:absolute;left:0;color:var(--teal-line);font-weight:700}
+
+.case-quote{
+  padding:.7rem 1.3rem .9rem;background:#fff;border-top:1px solid var(--line-soft);
+  display:flex;gap:.7rem;align-items:flex-start
+}
+.case-quote-mark{font-family:"Inter",sans-serif;font-size:1.6rem;color:var(--teal-line);line-height:.5;opacity:.6;margin-top:.4rem}
+.case-quote-text{font-size:.8rem;color:var(--navy);font-weight:600;line-height:1.55;font-style:italic;flex:1}
+.case-quote-label{font-size:.56rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.18rem;font-style:normal;font-weight:700}
+
+/* ════════════════════════════════════════════
+   DIAGRAMS (abstracted, no real screens)
+   ════════════════════════════════════════════ */
+.diagram{
+  background:linear-gradient(180deg,#fff,#FAFCFF);border:1px solid var(--line);border-radius:8px;
+  padding:.8rem 1.05rem;margin:0 1.3rem .8rem;
+}
+.diagram-title{
+  font-family:"Inter",sans-serif;font-size:.62rem;font-weight:800;color:var(--muted);
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:.7rem;
+  display:flex;align-items:center;gap:.4rem
+}
+.diagram-title::before{content:"◆";color:var(--teal-line);font-size:.55rem}
+.diagram-title .meta{margin-left:auto;font-family:"JetBrains Mono",monospace;font-weight:500;color:var(--line);font-size:.58rem}
+
+/* Layer-bar diagram (CASE 01) */
+.diag-layers{display:flex;flex-direction:column;gap:.42rem}
+.diag-layer-row{display:grid;grid-template-columns:62px 1fr 130px;gap:.7rem;align-items:center;font-size:.72rem}
+.diag-layer-tag{font-family:"Inter",sans-serif;font-size:.62rem;font-weight:800;color:var(--navy);letter-spacing:.06em;text-transform:uppercase;padding:.12rem .45rem;border-radius:3px;background:var(--surface);border:1px solid var(--line);text-align:center}
+.diag-layer-tag.t1{background:var(--teal-soft);border-color:#99DDD8;color:var(--teal-text)}
+.diag-layer-bar{height:18px;background:var(--line-soft);border-radius:3px;overflow:hidden;position:relative}
+.diag-layer-bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--navy) 0%,var(--cyan) 100%);border-radius:3px}
+.diag-layer-bar.t1 > i{background:linear-gradient(90deg,var(--teal-line) 0%,var(--cyan) 100%)}
+.diag-layer-desc{color:var(--body);font-size:.7rem;font-weight:500;line-height:1.3}
+.diag-layer-desc strong{color:var(--navy);font-weight:700}
+
+/* Phase diagram (CASE 02) */
+.diag-phases{display:flex;align-items:stretch;gap:0;position:relative}
+.diag-phase{flex:1;padding:.65rem .55rem;background:var(--surface);border:1px solid var(--line);border-radius:6px;text-align:center;position:relative;z-index:1}
+.diag-phase.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.diag-phase-num{font-family:"Inter",sans-serif;font-weight:900;font-size:.72rem;color:var(--teal-text);margin-bottom:.18rem;letter-spacing:.02em}
+.diag-phase.active .diag-phase-num{color:var(--teal-line)}
+.diag-phase-name{font-size:.72rem;font-weight:700;color:var(--navy);line-height:1.2}
+.diag-phase.active .diag-phase-name{color:#fff}
+.diag-phase-time{font-family:"JetBrains Mono",monospace;font-size:.58rem;color:var(--muted);margin-top:.18rem;letter-spacing:.02em}
+.diag-phase.active .diag-phase-time{color:rgba(255,255,255,.6)}
+.diag-phase-arrow{display:flex;align-items:center;justify-content:center;width:14px;color:var(--line);font-size:.7rem;font-weight:900;flex-shrink:0}
+.diag-phase-note{font-size:.66rem;color:var(--muted);margin-top:.55rem;text-align:center;font-weight:500}
+.diag-phase-note strong{color:var(--teal-text);font-weight:700}
+
+/* Board grid diagram (CASE 03) */
+.diag-board{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:center}
+.diag-board-grid{
+  display:grid;grid-template-columns:repeat(6,18px);grid-template-rows:repeat(5,18px);gap:2px;
+  padding:6px;background:var(--surface);border:1px solid var(--line);border-radius:6px
+}
+.diag-board-cell{background:#fff;border:1px solid var(--line);border-radius:2px}
+.diag-board-cell.b1{background:#A8DADC}
+.diag-board-cell.b2{background:#1D3557;border-color:#1D3557}
+.diag-board-cell.b3{background:#E63946;border-color:#E63946}
+.diag-board-cell.b4{background:#457B9D;border-color:#457B9D}
+.diag-board-cell.preview{background:rgba(0,200,192,.18);border:1px dashed var(--teal-line)}
+.diag-board-legend{display:flex;flex-direction:column;gap:.32rem;font-size:.7rem;color:var(--body)}
+.diag-board-legend .row{display:flex;align-items:center;gap:.45rem}
+.diag-board-legend .sw{width:11px;height:11px;border-radius:2px;flex-shrink:0;border:1px solid var(--line)}
+.diag-board-legend strong{color:var(--navy);font-weight:700}
+
+/* Live service compact */
+.live-compact{font-size:.72rem;color:var(--body);line-height:1.55}
+.live-compact-row{display:grid;grid-template-columns:118px 1fr;gap:.7rem;padding:.75rem 0;border-bottom:1px dashed var(--line-soft)}
+.live-compact-row:last-child{border-bottom:none;padding-bottom:.2rem}
+.live-compact-co{font-weight:800;color:var(--navy);font-size:.76rem}
+.live-compact-co .period{display:block;font-family:"JetBrains Mono",monospace;font-size:.6rem;color:var(--muted);font-weight:500;margin-top:.08rem}
+.live-compact-list{font-size:.74rem;color:var(--body);line-height:1.62;display:flex;flex-direction:column;gap:.42rem}
+.live-compact-list .item{display:grid;grid-template-columns:64px 1fr;gap:.55rem;align-items:baseline}
+.live-compact-list .ttl{font-weight:800;color:var(--teal-text);font-size:.64rem;letter-spacing:.04em;padding:.08rem .35rem;background:var(--teal-soft);border-radius:3px;text-align:center;line-height:1.4;white-space:nowrap}
+.live-compact-list .desc{font-size:.72rem;color:var(--body);line-height:1.6}
+.live-compact-list .desc strong{color:var(--navy);font-weight:700}
+
+/* ─── responsive ─── */
+@media(max-width:880px){
+  .doc-bg{padding:1.2rem .5rem 3rem}
+  .a4-page{width:auto;max-width:100%;min-height:auto;padding:1.4rem 1.2rem 3rem}
+  .page-foot{left:1.2rem;right:1.2rem;bottom:.8rem}
+  .topnav-inner{padding:.6rem 1rem}
+  .topnav nav{display:none}
+  .resume-header{grid-template-columns:1fr;text-align:left}
+  .resume-header-contact{border-left:none;padding-left:0;border-top:1px dashed var(--line);padding-top:.8rem;text-align:left;min-width:0}
+  .resume-header-contact > div{justify-content:flex-start}
+  .avatar-circle{width:78px;height:100px}
+  .resume-header-name{font-size:2rem}
+  .r-2col,.r-2col-narrow{grid-template-columns:1fr;gap:1.2rem}
+  .hl-list{grid-template-columns:1fr}
+  .personal-row{grid-template-columns:repeat(2,1fr)}
+  .case-role{grid-template-columns:repeat(2,1fr);gap:.5rem}
+  .case-role-cell{border-right:none;border-bottom:1px dashed var(--line);padding-bottom:.3rem}
+  .case-study-body{grid-template-columns:1fr}
+  .case-block.span2{grid-column:span 1}
+  .diag-board{grid-template-columns:1fr}
+}
+
+/* ─── print ─── */
+@media print{
+  body{background:#fff}
+  .topnav,.print-hide{display:none!important}
+  .doc-bg{background:#fff;padding:0}
+  .a4-page{width:auto;min-height:auto;margin:0;padding:14mm 14mm 18mm;box-shadow:none;border-radius:0}
+  .a4-page.with-top-bar::before,.case-study-head,.avatar-circle,.avatar-circle::before,
+  .resume-header-role,.cap-num,.sp-block,.case-block,.case-role,
+  .lang-badge,.r-entry-period .tenure,.diag-layer-bar > i,.diag-layer-tag.t1,
+  .diag-phase.active,.diag-board-cell{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{color:var(--teal-text);text-decoration:none}
+  @page{size:A4;margin:0}
+}
+</style>
+</head>
+<body>
+
+<!-- ============== TOP NAV ============== -->
+<header class="topnav print-hide">
+  <div class="topnav-inner">
+    <div class="brand">
+      <div class="brand-mark">✦</div>
+      <div>
+        <div class="brand-sub">Resume · Career Description</div>
+        <div class="brand-name">심동휘 — Game UX/UI Designer</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#page-1">이력서</a>
+      <a href="#page-2">역량 · 도구</a>
+      <a href="#case-1">Case 01</a>
+      <a href="#case-2">Case 02</a>
+      <a href="#case-3">Case 03</a>
+    </nav>
+    <button class="print-btn" onclick="window.print()">
+      <span>⎙</span> PDF로 저장
+    </button>
+  </div>
+</header>
+
+<main class="doc-bg">
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 1 — RESUME · Header + About(2) + Highlights(5) + Career
+═══════════════════════════════════════════════════════════════ -->
+<article class="a4-page" id="page-1">
+
+  <div class="cover-bar"></div>
+
+  <!-- Header -->
+  <div class="resume-header">
+    <div class="avatar-circle">
+      <img src="file:///X:/서류/증명사진.jpg" alt="심동휘 증명사진" />
+    </div>
+    <div>
+      <h1 class="resume-header-name">심동휘</h1>
+      <span class="resume-header-role">Game UX/UI Designer · 4년차</span>
+      <p class="resume-header-tagline">
+        복잡한 게임 시스템을 <strong>플레이 가능한 UX 흐름으로 구조화</strong>하고,
+        프로토타입 검증과 개발 핸드오프까지 고려하는 4년차 UI/UX 디자이너.
+      </p>
+    </div>
+    <div class="resume-header-contact">
+      <div><span class="label">Tel</span> 010-4288-2336</div>
+      <div><span class="label">Mail</span> <a href="/cdn-cgi/l/email-protection#40757173252133342c2927283400272d21292c6e232f2d"><span class="__cf_email__" data-cfemail="e9dcd8da8c889a9d85808e819da98e84888085c78a8684">[email&#160;protected]</span></a></div>
+      <div><span class="label">Loc</span> 서울 서초구</div>
+      <div><span class="label">Lang</span> JLPT N1</div>
+      <div><span class="label">Behance</span> <a href="https://www.behance.net/napalm30140be0" target="_blank" rel="noopener">napalm30140be0</a></div>
+      <div><span class="label">Figma</span> <a href="https://www.figma.com/design/i1NCYHTWyLM8ejTcrJRDWl/" target="_blank" rel="noopener">개인</a> · <a href="https://www.figma.com/design/aQiTIf7RArh5PuM8e46cvY/" target="_blank" rel="noopener">DV3</a></div>
+    </div>
+  </div>
+
+  <!-- About (3 paragraphs) -->
+  <div class="r-section">
+    <div class="r-section-title">About <span class="ko">자기소개</span></div>
+    <div class="resume-intro">
+      <p class="lead">
+        복잡한 게임 시스템을 <strong>플레이 가능한 UX 흐름으로 구조화</strong>하고,
+        프로토타입 검증과 개발 핸드오프까지 고려하는 Game UX/UI Designer입니다.
+      </p>
+      <p>
+        신규 프로젝트 DV3에서 전투·PVP·성장·탐험·길드·상점·결과/보상 팝업 등
+        <strong>50개+ 화면/플로우</strong>를 0에서 1로 설계했습니다.
+        정보량이 많은 시스템을 <em class="k">상시 / 조건 / 요청 / 숨김 레이어</em>로 분류하고,
+        모드별 UI를 공통 템플릿 + 가변 모듈 구조로 정리하는 데 강점이 있습니다.
+      </p>
+      <p>
+        Figma 인터랙션 프로토타입을 활용해 <strong>개발 착수 전 조작감과 화면 흐름을 검증</strong>하며,
+        Unity UGUI 개인 프로젝트 경험을 통해 컴포넌트 상태·예외 케이스·데이터 연동 등
+        실제 구현 관점의 핸드오프를 함께 고려합니다.
+      </p>
+    </div>
+  </div>
+
+  <!-- Highlights (5) -->
+  <div class="r-section">
+    <div class="r-section-title">Highlights <span class="ko">대표 성과</span><span class="meta">5 selected</span></div>
+    <div class="hl-list">
+      <div class="hl-item">
+        <div class="hl-num">01</div>
+        <div class="hl-text">DV3 핵심 시스템 UI/UX를 <strong>0→1로 설계</strong> — 모드별 화면 파생 비용을 줄이는 <em class="k">재사용 구조 수립</em> (전투·PVP·성장·탐험·길드·상점·결과/보상 팝업 등 50개+ 화면)</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-num">02</div>
+        <div class="hl-text">전투 UI 정보 과부하를 <em class="k">4단 레이어</em>로 구조화 — <strong>1보주 → 2보주 기획 변경</strong> 시 레이아웃 재설계 범위를 최소화한 사례</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-num">03</div>
+        <div class="hl-text">SWI 소울 보드 조작 UX를 <strong>프로토타입으로 사전 검증</strong> — 손가락 가림·회전·미리보기 이슈를 <em class="k">개발 착수 전 확정</em></div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-num">04</div>
+        <div class="hl-text"><strong>6개 타이틀 라이브 UI 병행 운영</strong> — 신규 콘텐츠·이벤트·스토어 리소스 우선순위 판단과 컨텍스트 전환</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-num">05</div>
+        <div class="hl-text">Unity UGUI 개인 프로젝트로 <strong>엔진 구현 제약을 디자이너 관점에서 학습</strong> — 컴포넌트 상태·예외 케이스 명세 정확도 향상</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Career -->
+  <div class="r-section">
+    <div class="r-section-title">Career <span class="ko">경력 · 총 약 4년</span></div>
+
+    <div class="r-entry">
+      <div class="r-entry-head">
+        <span>하이브로</span>
+        <span class="r-entry-bar">|</span>
+        <span class="r-entry-role">UX/UI 디자이너 · UI/UX팀</span>
+      </div>
+      <div class="r-entry-period">2023.12 — 현재<span class="tenure">재직 중 · 2년 5개월</span></div>
+      <ul class="r-bullets">
+        <li>신규 프로젝트 <strong>DV3</strong>의 전투·PVP·성장·탐험·길드·상점·결과/보상 팝업 등 <em class="k">핵심 시스템 UI/UX 설계</em> (50개+ 화면/플로우)</li>
+        <li>전투 UI 정보 과부하를 <strong>상시·조건·요청·숨김 레이어</strong>로 분리, 모드별 UI는 공통 템플릿 + 가변 모듈 구조로 정리</li>
+        <li><strong>SWI 소울 보드</strong> 신규 콘텐츠의 인터랙션 프로토타입 제작 및 조작 UX 사전 검증</li>
+        <li>최대 <strong>6개 타이틀 라이브 UI 병행 운영</strong></li>
+        <li>신규 콘텐츠·이벤트·스토어 리소스·앱 아이콘 등 운영성 UI 리소스 제작</li>
+        <li>후반부 <strong>주니어 디자이너 업무 배분·방향성 피드백</strong> 보조</li>
+      </ul>
+    </div>
+
+    <div class="r-entry">
+      <div class="r-entry-head">
+        <span>챌린저스 게임즈</span>
+        <span class="r-entry-bar">|</span>
+        <span class="r-entry-role">UX/UI 디자이너 · UI/UX팀</span>
+      </div>
+      <div class="r-entry-period">2022.12 — 2023.04<span class="tenure tenure-muted">5개월</span></div>
+      <ul class="r-bullets">
+        <li><strong>세컨드 웨이브</strong> — UI 화면 레이아웃 설계, 아이콘 시스템 디자인 및 제작</li>
+      </ul>
+    </div>
+
+    <div class="r-entry">
+      <div class="r-entry-head">
+        <span>로그웨이브</span>
+        <span class="r-entry-bar">|</span>
+        <span class="r-entry-role">UX/UI 디자이너 · UI/UX팀</span>
+      </div>
+      <div class="r-entry-period">2021.09 — 2022.11<span class="tenure tenure-muted">1년 3개월</span></div>
+      <ul class="r-bullets">
+        <li><strong>열혈강호 W</strong> — UI 시안, 아이콘 시스템 디자인, 이벤트 프로모션 배너 설계 및 제작</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span class="page-foot-name">심동휘 · Game UX/UI Designer</span>
+    <span class="page-foot-meta">About · Highlights · Career</span>
+    <span class="page-foot-num">01 <em>/ 05</em></span>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 2 — Capabilities(4) + Side Project + Tools + Education
+═══════════════════════════════════════════════════════════════ -->
+<article class="a4-page with-top-bar" id="page-2">
+  <div class="page-stamp">CV · 02</div>
+
+  <div class="r-2col" style="margin-top:.7rem">
+
+    <!-- LEFT: Capabilities -->
+    <div class="r-section" style="margin-bottom:0">
+      <div class="r-section-title">Capabilities <span class="ko">핵심 역량</span></div>
+      <div class="cap-list">
+        <div class="cap-item">
+          <div class="cap-num">01</div>
+          <div class="cap-body">
+            <div class="cap-title">게임 시스템 UX 설계</div>
+            <div class="cap-desc">전투·PVP·성장·길드·레이드 등 <strong>복합 시스템의 진입–조작–보상 플로우</strong>를 설계. 각 시스템이 어떤 정보를 언제 보여줄지를 먼저 정리한 뒤 화면을 설계합니다.</div>
+          </div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-num">02</div>
+          <div class="cap-body">
+            <div class="cap-title">정보 구조화</div>
+            <div class="cap-desc">전투 UI 정보를 <strong>상시 / 조건 / 요청 / 숨김</strong> 4단 레이어로 분리. 모드별 UI는 베이스 템플릿 + 가변 모듈로 나눠 개발팀의 컴포넌트 재사용성을 확보합니다.</div>
+          </div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-num">03</div>
+          <div class="cap-body">
+            <div class="cap-title">프로토타입 검증</div>
+            <div class="cap-desc">정보량 많은 시스템은 <strong>Figma 인터랙션 프로토타입</strong>으로 외화해 조작감을 사전 검증. 손가락 가림·회전 버튼 위치·미리보기 같은 이슈를 개발 전에 발견·해결합니다.</div>
+          </div>
+        </div>
+        <div class="cap-item">
+          <div class="cap-num">04</div>
+          <div class="cap-body">
+            <div class="cap-title">개발 협업 / 핸드오프</div>
+            <div class="cap-desc">Unity UGUI 개인 프로젝트 경험으로 <strong>드로우콜 등 최적화 요소</strong>를 함께 고려. 컴포넌트 재사용성·상태 변화·예외 케이스를 핸드오프 문서에 반영합니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Side Project + Tools -->
+    <div style="display:flex;flex-direction:column;gap:1.2rem">
+      <!-- Side Project -->
+      <div class="r-section" style="margin-bottom:0">
+        <div class="r-section-title">Side Project <span class="ko">사이드 프로젝트</span></div>
+        <div class="sp-block">
+          <div class="sp-head">
+            <div class="sp-title">2D 턴제 전략 RPG</div>
+            <div class="sp-meta">Unity / C# · 1인 개발 · <span style="color:var(--muted)">구현 샘플 별도 제공</span></div>
+          </div>
+          <p class="sp-desc">
+            기획·UX/UI 설계·Unity UGUI 구현을 1인으로 진행하며 <strong>Figma 시안이 실제 엔진에서 구현되는 과정을 직접 검증</strong>.
+            ScriptableObject 기반 데이터, 전투·스킬·상태 UI를 구현하며 <strong>컴포넌트 구조와 상태 변화 제약</strong>을 학습했고,
+            개발자에게 전달 가능한 UI 사양·화면 상태·예외 케이스를 구체적으로 정의하는 습관을 형성했습니다.
+          </p>
+          <div class="sp-stack">
+            <span class="lead">Unity</span>
+            <span class="lead">C#</span>
+            <span class="lead">UGUI</span>
+            <span>ScriptableObject</span>
+            <span>턴제 전투</span>
+            <span>상태 UI</span>
+            <span>데이터 연동</span>
+          </div>
+          <div class="sp-diagram">
+            <div class="sp-diag-cell">
+              <span class="sp-diag-tag">Data</span>
+              <div class="sp-diag-name">ScriptableObject</div>
+              <div class="sp-diag-desc">캐릭·스킬·아이템 데이터</div>
+            </div>
+            <div class="sp-diag-cell">
+              <span class="sp-diag-tag">Logic</span>
+              <div class="sp-diag-name">턴제 전투 루프</div>
+              <div class="sp-diag-desc">상태 머신·액션 큐</div>
+            </div>
+            <div class="sp-diag-cell">
+              <span class="sp-diag-tag">UI / UGUI</span>
+              <div class="sp-diag-name">컴포넌트 구조</div>
+              <div class="sp-diag-desc">HUD·스킬 패널·결과</div>
+            </div>
+          </div>
+          <div class="sp-diag-caption">fig. 구조 도식 · 구현 샘플은 요청 시 별도 제공</div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="r-section" style="margin-bottom:0">
+        <div class="r-section-title">Tools <span class="ko">사용 도구 · 맥락</span></div>
+        <div class="tools-list">
+          <div class="tool-row">
+            <div class="tool-name">Figma<span class="tag">Design</span></div>
+            <div class="tool-desc">와이어프레임 · UX 플로우 · <strong>인터랙션 프로토타입</strong> · 컴포넌트 기반 화면 설계</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-name">Photoshop<span class="tag">Design</span></div>
+            <div class="tool-desc">게임 UI 리소스 · 이벤트 배너 · 스토어 리소스</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-name">Unity / UGUI<span class="tag">Engine</span></div>
+            <div class="tool-desc">개인 프로젝트 UI 구현 · 프리팹 · 상태 변화 · 데이터 연동 구조 이해</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-name">Cocos2D‑X<span class="tag">Engine</span></div>
+            <div class="tool-desc">실무 UI 리소스 제작 및 엔진 적용 흐름 이해</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-name">Jira · Confluence<span class="tag">Collab</span></div>
+            <div class="tool-desc">UI 사양 문서 작성 · 이슈 기반 협업</div>
+          </div>
+          <div class="tool-row">
+            <div class="tool-name">AI Tools<span class="tag">Workflow</span></div>
+            <div class="tool-desc">Research / Documentation Workflow — 레퍼런스 탐색·문서 초안·코드 보조 (보조 워크플로우)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education + Personal -->
+  <div class="r-section" style="margin-top:1.2rem">
+    <div class="r-section-title">Education <span class="ko">학력 · 언어</span></div>
+    <div class="r-2col">
+      <div>
+        <div class="r-edu-entry">
+          <div class="r-edu-head">리츠메이칸 대학</div>
+          <div class="r-edu-period">2013 — 2017 · 생명공학부 생물과학과 · 재학 후 중퇴</div>
+        </div>
+        <div class="r-edu-entry">
+          <div class="r-edu-head">부여고등학교</div>
+          <div class="r-edu-period">2009 — 2012 · 인문계 졸업</div>
+        </div>
+      </div>
+      <div>
+        <div class="r-edu-note">
+          <span class="lang-badge">JLPT N1</span> 일본어 · 비즈니스 커뮤니케이션 가능
+        </div>
+        <div class="r-edu-note" style="margin-top:.35rem">
+          <span class="lang-badge lang-badge-muted">KO</span> 한국어 · 모국어
+        </div>
+      </div>
+    </div>
+
+    <div class="personal-row">
+      <div class="personal-cell"><span class="label">생년월일</span>1993. 11. 18</div>
+      <div class="personal-cell"><span class="label">거주지</span>서울 서초구</div>
+      <div class="personal-cell"><span class="label">병역</span>군필 · 병장 만기</div>
+      <div class="personal-cell"><span class="label">연락처</span>010-4288-2336</div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span class="page-foot-name">심동휘 · Game UX/UI Designer</span>
+    <span class="page-foot-meta">Capabilities · Side · Tools · Education</span>
+    <span class="page-foot-num">02 <em>/ 05</em></span>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 3 — Case Study 01 · DV3 전투 시스템
+═══════════════════════════════════════════════════════════════ -->
+<article class="a4-page with-top-bar section-anchor" id="case-1">
+  <div class="page-stamp">CASE STUDY · 01</div>
+
+  <div class="r-section-title" style="margin-top:.5rem">Career Description <span class="ko">대표 프로젝트</span><span class="meta">3 case studies</span></div>
+
+  <div class="case-study" style="margin-bottom:0">
+    <div class="case-study-head">
+      <div>
+        <div class="case-study-tag">Case Study · 01</div>
+        <div class="case-study-head-title">드래곤 빌리지 3 — 전투 시스템 UX</div>
+        <div class="case-study-head-meta">하이브로 · 2023.12 — 현재 · 출시 준비 중</div>
+      </div>
+      <div class="case-study-num">01</div>
+    </div>
+
+    <!-- Role -->
+    <div class="case-role">
+      <div class="case-role-cell"><div class="case-role-label">UX 구조</div><div class="case-role-val lead">주도</div></div>
+      <div class="case-role-cell"><div class="case-role-label">UI 시안</div><div class="case-role-val lead">주도</div></div>
+      <div class="case-role-cell"><div class="case-role-label">프로토타입</div><div class="case-role-val">단독</div></div>
+      <div class="case-role-cell"><div class="case-role-label">리소스</div><div class="case-role-val">공동</div></div>
+      <div class="case-role-cell"><div class="case-role-label">개발 핸드오프</div><div class="case-role-val lead">주도</div></div>
+    </div>
+
+    <!-- Diagram: 4-layer info structure -->
+    <div class="diagram">
+      <div class="diagram-title">정보 우선순위 — 4단 레이어 구조<span class="meta">fig.01 · 보안상 추상화</span></div>
+      <div class="diag-layers">
+        <div class="diag-layer-row">
+          <span class="diag-layer-tag t1">상시</span>
+          <div class="diag-layer-bar t1"><i style="width:100%"></i></div>
+          <div class="diag-layer-desc"><strong>체력·코스트·스킬 버튼</strong></div>
+        </div>
+        <div class="diag-layer-row">
+          <span class="diag-layer-tag">조건</span>
+          <div class="diag-layer-bar"><i style="width:72%"></i></div>
+          <div class="diag-layer-desc"><strong>버프/디버프·필살기 게이지</strong></div>
+        </div>
+        <div class="diag-layer-row">
+          <span class="diag-layer-tag">요청</span>
+          <div class="diag-layer-bar"><i style="width:46%"></i></div>
+          <div class="diag-layer-desc"><strong>드래곤 상세 스탯·스킬 설명</strong></div>
+        </div>
+        <div class="diag-layer-row">
+          <span class="diag-layer-tag">숨김</span>
+          <div class="diag-layer-bar"><i style="width:22%"></i></div>
+          <div class="diag-layer-desc"><strong>로그·접근성 메뉴</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study-body">
+      <div class="case-block span2">
+        <div class="case-block-label">Problem · 문제</div>
+        <div class="case-block-text">
+          스킬·코스트·체력·버프·필살기·교체·보주 등 <strong>핵심 정보가 한 화면에 집중</strong>되는 구조.
+          일반·PVP·던전·레이드 전투 모드마다 표시 정보가 달라 모드별 화면을 개별 제작하면 <strong>개발 공수가 크게 늘어남</strong>.
+        </div>
+      </div>
+      <div class="case-block span2">
+        <div class="case-block-label">Approach · 접근</div>
+        <div class="case-block-text">
+          정보를 <em class="k">상시·조건·요청·숨김 4단</em>으로 분류해 우선순위 프레임워크를 수립하고, 모드별 UI는 <strong>베이스 템플릿 위에 가변 모듈을 추가/제거</strong>하는 방식으로 분리.
+          개발팀이 화면 단위가 아닌 모듈 단위로 재사용할 수 있는 구조로 정리했습니다.
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">Output · 산출물</div>
+        <div class="case-block-text">
+          <ul>
+            <li>전투 준비 → 진행 → 결과 전체 UX 플로우</li>
+            <li>전투 HUD 시안 (스킬·필살기·보주·코스트)</li>
+            <li>자동 전투 / 전투 위임 UX 플로우</li>
+            <li>모드별 공통 템플릿 + 모듈 가이드</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">Outcome · 결과</div>
+        <div class="case-block-text">
+          출시 전 단계에서는 유저 지표보다 <strong>기획 변경 대응성</strong>과 <strong>개발 재사용성</strong>을 우선 지표로 삼았습니다.
+          정보 우선순위 프레임워크는 이후 탐험·레이드에도 동일 적용했고,
+          <em class="k">1보주 → 2보주 기획 변경</em> 시 레이아웃 재설계 범위를 최소화했습니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="case-quote">
+      <div class="case-quote-mark">"</div>
+      <div class="case-quote-text">
+        <div class="case-quote-label">Key Takeaway</div>
+        복잡한 전투 정보를 플레이 중 의사결정에 필요한 단위로 재구성했고, 개발팀이 컴포넌트를 재사용할 수 있는 구조로 설계했습니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span class="page-foot-name">심동휘 · Game UX/UI Designer</span>
+    <span class="page-foot-meta">Case Study · DV3 전투</span>
+    <span class="page-foot-num">03 <em>/ 05</em></span>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 4 — Case Study 02 · DV3 PVP / 아레나
+═══════════════════════════════════════════════════════════════ -->
+<article class="a4-page with-top-bar section-anchor" id="case-2">
+  <div class="page-stamp">CASE STUDY · 02</div>
+
+  <div class="case-study" style="margin-top:.5rem">
+    <div class="case-study-head">
+      <div>
+        <div class="case-study-tag">Case Study · 02</div>
+        <div class="case-study-head-title">드래곤 빌리지 3 — PVP / 아레나 드래프트 벤픽</div>
+        <div class="case-study-head-meta">하이브로 · 2023.12 — 현재 · 출시 준비 중</div>
+      </div>
+      <div class="case-study-num">02</div>
+    </div>
+
+    <!-- Role -->
+    <div class="case-role">
+      <div class="case-role-cell"><div class="case-role-label">UX 구조</div><div class="case-role-val lead">주도</div></div>
+      <div class="case-role-cell"><div class="case-role-label">UI 시안</div><div class="case-role-val lead">주도</div></div>
+      <div class="case-role-cell"><div class="case-role-label">프로토타입</div><div class="case-role-val">공동</div></div>
+      <div class="case-role-cell"><div class="case-role-label">리소스</div><div class="case-role-val">공동</div></div>
+      <div class="case-role-cell"><div class="case-role-label">개발 핸드오프</div><div class="case-role-val lead">주도</div></div>
+    </div>
+
+    <!-- Diagram: phases -->
+    <div class="diagram">
+      <div class="diagram-title">드래프트 단계 — 동일 프레임, 상태 전환<span class="meta">fig.02 · 보안상 추상화</span></div>
+      <div class="diag-phases">
+        <div class="diag-phase">
+          <div class="diag-phase-num">01</div>
+          <div class="diag-phase-name">글로벌 벤</div>
+          <div class="diag-phase-time">~30s</div>
+        </div>
+        <div class="diag-phase-arrow">›</div>
+        <div class="diag-phase">
+          <div class="diag-phase-num">02</div>
+          <div class="diag-phase-name">픽</div>
+          <div class="diag-phase-time">~25s</div>
+        </div>
+        <div class="diag-phase-arrow">›</div>
+        <div class="diag-phase active">
+          <div class="diag-phase-num">03</div>
+          <div class="diag-phase-name">2차 벤</div>
+          <div class="diag-phase-time">~20s</div>
+        </div>
+        <div class="diag-phase-arrow">›</div>
+        <div class="diag-phase">
+          <div class="diag-phase-num">04</div>
+          <div class="diag-phase-name">출전 순서</div>
+          <div class="diag-phase-time">~15s</div>
+        </div>
+      </div>
+      <div class="diag-phase-note">화면을 새로 띄우지 않고 <strong>동일 프레임 내 상태·CTA만 변화</strong></div>
+    </div>
+
+    <div class="case-study-body">
+      <div class="case-block span2">
+        <div class="case-block-label">Problem · 문제</div>
+        <div class="case-block-text">
+          <strong>글로벌 벤 → 픽 → 2차 벤 → 출전 순서 결정</strong>으로 이어지는 다단계 드래프트 플로우.
+          단계마다 화면이 통째로 바뀌면 유저가 현재 단계 맥락을 잃기 쉽고, <strong>시간 제한까지 존재</strong>해 긴장감과 명확성이 동시에 요구됨.
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">Approach · 접근</div>
+        <div class="case-block-text">
+          매 단계 새 화면 대신 <strong>동일 프레임 안에서 상태와 CTA만 변하도록</strong> 설계.
+          스텝 인디케이터로 현재 위치를 명확히 하고, 시간 제한은 테두리·배경 색상 변화로 <strong>압박 없는 긴장감</strong>을 전달.
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">Output · 산출물</div>
+        <div class="case-block-text">
+          <ul>
+            <li>랭크 매치 / 친선전 / 드래프트 플로우</li>
+            <li>단계별 선택·검색·랭킹·보상 화면</li>
+            <li>아레나 광장 · 친선전 초대 UX</li>
+            <li>콜로세움 시즌 보상 · 명예의 전당</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-block span2">
+        <div class="case-block-label">Outcome · 결과</div>
+        <div class="case-block-text">
+          경쟁 콘텐츠의 다단계 규칙을 <em class="k">상태 변화 중심 인터랙션</em>으로 변환하는 방식이
+          이후 길드전·레이드 설계에도 동일 적용됨. 화면 전환을 줄여 <strong>개발 구현 범위도 함께 축소</strong>되는 효과.
+        </div>
+      </div>
+    </div>
+
+    <div class="case-quote">
+      <div class="case-quote-mark">"</div>
+      <div class="case-quote-text">
+        <div class="case-quote-label">Key Takeaway</div>
+        복잡한 경쟁 콘텐츠 규칙을 단계 이동 없이 상태 변화로 처리해, 유저가 플로우를 잃지 않고 따라갈 수 있게 설계했습니다.
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <span class="page-foot-name">심동휘 · Game UX/UI Designer</span>
+    <span class="page-foot-meta">Case Study · DV3 PVP / 아레나</span>
+    <span class="page-foot-num">04 <em>/ 05</em></span>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 5 — Case Study 03 · SWI 소울 보드 + 기타 라이브 + END
+═══════════════════════════════════════════════════════════════ -->
+<article class="a4-page with-top-bar section-anchor" id="case-3">
+  <div class="page-stamp">CASE STUDY · 03 + LIVE OPS</div>
+
+  <div class="case-study" style="margin-top:.5rem">
+    <div class="case-study-head">
+      <div>
+        <div class="case-study-tag">Case Study · 03</div>
+        <div class="case-study-head-title">소울웨폰 키우기 — 소울 보드 UX & 프로토타입</div>
+        <div class="case-study-head-meta">하이브로 · 2024 · 라이브 서비스 중</div>
+      </div>
+      <div class="case-study-num">03</div>
+    </div>
+
+    <!-- Role -->
+    <div class="case-role">
+      <div class="case-role-cell"><div class="case-role-label">UX 구조</div><div class="case-role-val lead">주도</div></div>
+      <div class="case-role-cell"><div class="case-role-label">UI 시안</div><div class="case-role-val">공동</div></div>
+      <div class="case-role-cell"><div class="case-role-label">프로토타입</div><div class="case-role-val lead">단독</div></div>
+      <div class="case-role-cell"><div class="case-role-label">리소스</div><div class="case-role-val">일부</div></div>
+      <div class="case-role-cell"><div class="case-role-label">개발 핸드오프</div><div class="case-role-val">공동</div></div>
+    </div>
+
+    <!-- Diagram: Board grid -->
+    <div class="diagram">
+      <div class="diagram-title">소울 보드 — 블록 배치 + 미리보기 상태<span class="meta">fig.03 · 보안상 추상화</span></div>
+      <div class="diag-board">
+        <div class="diag-board-grid">
+          <div class="diag-board-cell b1"></div><div class="diag-board-cell b1"></div><div class="diag-board-cell"></div><div class="diag-board-cell b2"></div><div class="diag-board-cell b2"></div><div class="diag-board-cell"></div>
+          <div class="diag-board-cell b1"></div><div class="diag-board-cell"></div><div class="diag-board-cell"></div><div class="diag-board-cell b2"></div><div class="diag-board-cell"></div><div class="diag-board-cell"></div>
+          <div class="diag-board-cell"></div><div class="diag-board-cell b3"></div><div class="diag-board-cell b3"></div><div class="diag-board-cell"></div><div class="diag-board-cell preview"></div><div class="diag-board-cell preview"></div>
+          <div class="diag-board-cell b4"></div><div class="diag-board-cell b3"></div><div class="diag-board-cell"></div><div class="diag-board-cell"></div><div class="diag-board-cell preview"></div><div class="diag-board-cell preview"></div>
+          <div class="diag-board-cell b4"></div><div class="diag-board-cell b4"></div><div class="diag-board-cell"></div><div class="diag-board-cell"></div><div class="diag-board-cell"></div><div class="diag-board-cell"></div>
+        </div>
+        <div class="diag-board-legend">
+          <div class="row"><span class="sw" style="background:#A8DADC"></span><span><strong>배치된 블록</strong> — 보드 위 점유 상태</span></div>
+          <div class="row"><span class="sw" style="background:rgba(0,200,192,.18);border:1px dashed var(--teal-line)"></span><span><strong>미리보기 셀</strong> — 확정 전 배치 위치 시각화</span></div>
+          <div class="row"><span style="font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.04em">DRAG · TAP</span><span>두 가지 배치 방식 병행 지원</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study-body">
+      <div class="case-block span2">
+        <div class="case-block-label">Problem · 문제</div>
+        <div class="case-block-text">
+          <strong>블록 퍼즐 기반 스탯 성장 시스템</strong> 신규 도입. 퍼즐 조작에 익숙하지 않은 유저층도 포함되어 있어 <strong>조작 방식 설계가 핵심</strong>.
+          실제 조작감을 개발 전에 검증할 수 없는 상황.
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">Approach · 접근</div>
+        <div class="case-block-text">
+          <ul>
+            <li>배치를 <strong>드래그</strong> + <strong>탭 투 플레이스</strong> 두 방식으로 병행</li>
+            <li>Figma 인터랙션 프로토타입으로 팀 내 조작 검증</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">Findings · 발견 이슈</div>
+        <div class="case-block-text">
+          <ul>
+            <li><strong>손가락이 인접 셀을 가리는 문제</strong></li>
+            <li>회전 버튼이 조작 흐름을 방해하는 위치</li>
+            <li><strong>미리보기 상태</strong> 필요성 확인</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-block span2">
+        <div class="case-block-label">Outcome · 결과</div>
+        <div class="case-block-text">
+          Figma 프로토타입으로 실제 조작 흐름을 사전 검증해 손가락 가림·회전 버튼 위치·미리보기 상태 이슈를
+          <em class="k">개발 착수 전에 확정</em>했습니다. 기능 자체의 UX뿐 아니라 <strong>발견과 학습의 UX</strong>(메인 진입점·가이드·캐릭터 화면 연동)도 함께 설계.
+        </div>
+      </div>
+    </div>
+
+    <div class="case-quote">
+      <div class="case-quote-mark">"</div>
+      <div class="case-quote-text">
+        <div class="case-quote-label">Key Takeaway</div>
+        Figma 프로토타입으로 개발 전 조작감을 검증해 실제 구현 수정 비용을 줄인 사례입니다.
+      </div>
+    </div>
+  </div>
+
+  <!-- 기타 라이브 서비스 - 압축 -->
+  <div class="r-section" style="margin-top:1.1rem">
+    <div class="r-section-title">Additional Live Ops <span class="ko">기타 라이브 서비스 경험</span></div>
+    <div class="live-compact">
+      <div class="live-compact-row">
+        <div class="live-compact-co">하이브로<span class="period">2023.12 — 현재</span></div>
+        <div class="live-compact-list">
+          <div class="item"><span class="ttl">DVM</span><span class="desc">캡슐뽑기 · 모험 랭킹 · 도움말 개편 · 성장 아바타 · 이벤트/스토어 리소스</span></div>
+          <div class="item"><span class="ttl">DVR</span><span class="desc">메인 · 동굴 · 전투 시안 · 도감 · 콜로세움</span></div>
+          <div class="item"><span class="ttl">DV1·DVA</span><span class="desc">라이브 UI 유지보수 · 이벤트</span></div>
+          <div class="item"><span class="ttl">SWI</span><span class="desc">수호자의 탑/힘 · 별의 가지 · 조합석 · 신규 길드 던전 UI · <strong>월별 이벤트 배너 12개월+ 연속</strong> · 일렉시드 콜라보</span></div>
+        </div>
+      </div>
+      <div class="live-compact-row">
+        <div class="live-compact-co">챌린저스 게임즈<span class="period">2022.12 — 2023.04</span></div>
+        <div class="live-compact-list">
+          <div class="item"><span class="ttl">세컨드 웨이브</span><span class="desc">아이콘 시스템 디자인 · UI 화면 레이아웃 설계</span></div>
+        </div>
+      </div>
+      <div class="live-compact-row">
+        <div class="live-compact-co">로그웨이브<span class="period">2021.09 — 2022.11</span></div>
+        <div class="live-compact-list">
+          <div class="item"><span class="ttl">열혈강호 W</span><span class="desc">아이콘 시스템 · 인게임 UI 리소스 · 이벤트 배너 — <strong>라이브 서비스 UI 운영 사이클</strong>을 익힌 첫 실무 경험</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.2rem;text-align:center;color:var(--muted);font-size:.66rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em">
+    <span style="color:var(--teal-line)">✦</span> &nbsp; END OF DOCUMENT &nbsp; <span style="color:var(--teal-line)">✦</span><br>
+    <span style="opacity:.7">2026-05-13 · 심동휘 · napalm3014</span>
+  </div>
+
+  <div class="page-foot">
+    <span class="page-foot-name">심동휘 · Game UX/UI Designer</span>
+    <span class="page-foot-meta">Case Study · SWI 소울 보드 · Live Ops</span>
+    <span class="page-foot-num">05 <em>/ 05</em></span>
+  </div>
+</article>
+
+</main>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
