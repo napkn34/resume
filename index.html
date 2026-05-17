@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
@@ -55,7 +55,7 @@ a:hover{border-color:var(--teal-line)}
 }
 .a4-page{
   width:210mm;
-  min-height:297mm;
+  height:297mm;
   margin:0 auto 1.6rem;
   padding:14mm 16mm 18mm;
   background:var(--paper);
@@ -402,10 +402,8 @@ a:hover{border-color:var(--teal-line)}
   .avatar-circle{width:78px;height:100px}
   .resume-header-name{font-size:2rem}
   .r-2col,.r-2col-narrow{grid-template-columns:1fr;gap:1.2rem}
-  .hl-list{grid-template-columns:1fr}
   .personal-row{grid-template-columns:repeat(2,1fr)}
-  .case-role{grid-template-columns:repeat(2,1fr);gap:.5rem}
-  .case-role-cell{border-right:none;border-bottom:1px dashed var(--line);padding-bottom:.3rem}
+  .hl-list{grid-template-columns:1fr}
   .case-study-body{grid-template-columns:1fr}
   .case-block.span2{grid-column:span 1}
   .diag-board{grid-template-columns:1fr}
@@ -429,6 +427,7 @@ a:hover{border-color:var(--teal-line)}
   .resume-header-contact{border-left:1px solid var(--line-soft);padding-left:1.2rem;border-top:none;padding-top:0;text-align:right;min-width:170px}
   .resume-header-contact>div{justify-content:flex-end}
   .avatar-circle{width:88px;height:112px}
+  .case-role{grid-template-columns:repeat(5,1fr)}
 }
 </style>
 </head>
