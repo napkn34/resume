@@ -291,11 +291,11 @@ a:hover{border-color:var(--teal-line)}
 
 /* Role row */
 .case-role{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
   padding:.65rem 1.3rem;background:var(--surface);border-bottom:1px solid var(--line-soft);
 }
-.case-role-cell{padding:0 .65rem;border-right:1px dashed var(--line);text-align:center}
-.case-role-cell:last-child{border-right:none}
+.case-role-cell{padding:.3rem .65rem;border-right:none;border-bottom:1px dashed var(--line);text-align:center}
+.case-role-cell:last-child{border-bottom:none;grid-column:1 / -1}
 .case-role-label{font-size:.6rem;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.15rem}
 .case-role-val{font-size:.72rem;font-weight:700;color:var(--navy)}
 .case-role-val.lead{color:var(--teal-text)}
@@ -404,8 +404,7 @@ a:hover{border-color:var(--teal-line)}
   .r-2col,.r-2col-narrow{grid-template-columns:1fr;gap:1.2rem}
   .hl-list{grid-template-columns:1fr}
   .personal-row{grid-template-columns:repeat(2,1fr)}
-  .case-role{grid-template-columns:repeat(2,1fr);gap:.5rem}
-  .case-role-cell{border-right:none;border-bottom:1px dashed var(--line);padding-bottom:.3rem}
+  .case-role{gap:.5rem}
   .case-study-body{grid-template-columns:1fr}
   .case-block.span2{grid-column:span 1}
   .diag-board{grid-template-columns:1fr}
@@ -445,28 +444,6 @@ a:hover{border-color:var(--teal-line)}
 </head>
 <body>
 
-<!-- ============== TOP NAV ============== -->
-<header class="topnav print-hide">
-  <div class="topnav-inner">
-    <div class="brand">
-      <div class="brand-mark">✦</div>
-      <div>
-        <div class="brand-sub">Resume · Career Description</div>
-        <div class="brand-name">심동휘 — Game UX/UI Designer</div>
-      </div>
-    </div>
-    <nav>
-      <a href="#page-1">이력서</a>
-      <a href="#page-2">역량 · 도구</a>
-      <a href="#case-1">Case 01</a>
-      <a href="#case-2">Case 02</a>
-      <a href="#case-3">Case 03</a>
-    </nav>
-    <button class="print-btn" onclick="window.print()">
-      <span>⎙</span> PDF로 저장
-    </button>
-  </div>
-</header>
 
 <main class="doc-bg">
 
