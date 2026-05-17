@@ -390,26 +390,6 @@ a:hover{border-color:var(--teal-line)}
 .live-compact-list .desc strong{color:var(--navy);font-weight:700}
 
 /* ─── responsive ─── */
-@media(max-width:880px){
-  .doc-bg{padding:1.2rem .5rem 3rem}
-  .a4-page{width:auto;max-width:100%;min-height:auto;padding:1.4rem 1.2rem 3rem}
-  .page-foot{left:1.2rem;right:1.2rem;bottom:.8rem}
-  .topnav-inner{padding:.6rem 1rem}
-  .topnav nav{display:none}
-  .resume-header{grid-template-columns:1fr;text-align:left}
-  .resume-header-contact{border-left:none;padding-left:0;border-top:1px dashed var(--line);padding-top:.8rem;text-align:left;min-width:0}
-  .resume-header-contact > div{justify-content:flex-start}
-  .avatar-circle{width:78px;height:100px}
-  .resume-header-name{font-size:2rem}
-  .r-2col,.r-2col-narrow{grid-template-columns:1fr;gap:1.2rem}
-  .hl-list{grid-template-columns:1fr}
-  .personal-row{grid-template-columns:repeat(2,1fr)}
-  .case-role{grid-template-columns:repeat(2,1fr);gap:.5rem}
-  .case-role-cell{border-right:none;border-bottom:1px dashed var(--line);padding-bottom:.3rem}
-  .case-study-body{grid-template-columns:1fr}
-  .case-block.span2{grid-column:span 1}
-  .diag-board{grid-template-columns:1fr}
-}
 
 /* ─── print ─── */
 @page{size:A4;margin:0}
@@ -435,11 +415,6 @@ a:hover{border-color:var(--teal-line)}
   .lang-badge,.r-entry-period .tenure,.diag-layer-bar > i,.diag-layer-tag.t1,
   .diag-phase.active,.diag-board-cell{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   a{color:var(--teal-text);text-decoration:none}
-  /* ─ 모바일 CSS(max-width:880px) override ─ */
-  .resume-header{display:grid;grid-template-columns:auto 1fr auto}
-  .resume-header-contact{border-left:1px solid var(--line-soft);padding-left:1.2rem;border-top:none;padding-top:0;text-align:right;min-width:170px}
-  .resume-header-contact>div{justify-content:flex-end}
-  .avatar-circle{width:88px;height:112px}
 }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
