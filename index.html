@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
@@ -55,14 +55,13 @@ a:hover{border-color:var(--teal-line)}
 }
 .a4-page{
   width:210mm;
-  height:297mm;
+  min-height:297mm;
   margin:0 auto 1.6rem;
   padding:14mm 16mm 18mm;
   background:var(--paper);
   box-shadow:var(--shadow-paper);
   position:relative;
   overflow:hidden;
-  box-sizing:border-box;
   break-after:page;
   page-break-after:always;
   border-radius:2px;
@@ -154,7 +153,7 @@ a:hover{border-color:var(--teal-line)}
 /* ════════════════════════════════════════════
    SECTION TITLES (toned down, navy primary)
    ════════════════════════════════════════════ */
-.r-section{margin-bottom:.65rem}
+.r-section{margin-bottom:1rem}
 .r-section:last-child{margin-bottom:0}
 .r-section-title{
   font-family:"Inter","Noto Sans KR",sans-serif;
@@ -171,14 +170,14 @@ a:hover{border-color:var(--teal-line)}
 .r-section-title .meta{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.66rem;color:var(--muted);font-weight:500;letter-spacing:.02em;text-transform:none}
 
 /* Intro paragraphs */
-.resume-intro{font-size:.86rem;color:var(--body);line-height:1.72;display:flex;flex-direction:column;gap:.4rem}
+.resume-intro{font-size:.86rem;color:var(--body);line-height:1.72;display:flex;flex-direction:column;gap:.78rem}
 .resume-intro strong{color:var(--navy);font-weight:700}
-.resume-intro .lead{font-size:.88rem;color:var(--navy);font-weight:600;line-height:1.48}
+.resume-intro .lead{font-size:.92rem;color:var(--navy);font-weight:600;line-height:1.55}
 .resume-intro em.k{color:var(--teal-text);font-style:normal;font-weight:700;background:var(--teal-soft);padding:.05rem .35rem;border-radius:3px}
 
 /* Highlights — compact numbered list */
 .hl-list{display:grid;grid-template-columns:1fr 1fr;gap:.35rem .9rem}
-.hl-item{display:grid;grid-template-columns:auto 1fr;gap:.5rem;align-items:start;padding:.2rem 0;border-bottom:1px dashed var(--line-soft)}
+.hl-item{display:grid;grid-template-columns:auto 1fr;gap:.5rem;align-items:start;padding:.32rem 0;border-bottom:1px dashed var(--line-soft)}
 .hl-item:nth-last-child(-n+2){border-bottom:none}
 .hl-num{
   font-family:"Inter",sans-serif;font-weight:900;font-size:.85rem;
@@ -190,7 +189,7 @@ a:hover{border-color:var(--teal-line)}
 .hl-text em.k{color:var(--teal-text);font-style:normal;font-weight:700}
 
 /* Career entry */
-.r-entry{margin-bottom:1.5mm}
+.r-entry{margin-bottom:.7rem}
 .r-entry:last-child{margin-bottom:0}
 .r-entry-head{
   font-size:.9rem;font-weight:800;color:var(--navy);margin-bottom:.08rem;
@@ -207,8 +206,8 @@ a:hover{border-color:var(--teal-line)}
   font-size:.64rem
 }
 .r-entry-period .tenure-muted{background:var(--surface);color:var(--muted)}
-.r-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.04rem}
-.r-bullets li{font-size:.76rem;color:var(--body);line-height:1.55;padding-left:.9rem;position:relative}
+.r-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.3rem}
+.r-bullets li{font-size:.81rem;color:var(--body);line-height:1.55;padding-left:.9rem;position:relative}
 .r-bullets li::before{content:"·";position:absolute;left:.05rem;top:-.1rem;color:var(--teal-line);font-weight:900;font-size:1.2rem;line-height:1}
 .r-bullets li strong{color:var(--navy);font-weight:700}
 .r-bullets li em.k{color:var(--teal-text);font-style:normal;font-weight:700}
@@ -390,8 +389,27 @@ a:hover{border-color:var(--teal-line)}
 .live-compact-list .desc{font-size:.72rem;color:var(--body);line-height:1.6}
 .live-compact-list .desc strong{color:var(--navy);font-weight:700}
 
-/* 로그웨이브 bullet — page1 overflow 원인이므로 항상 숨김 */
-#entry-logwave .r-bullets{display:none}
+/* ─── responsive ─── */
+@media(max-width:880px){
+  .doc-bg{padding:1.2rem .5rem 3rem}
+  .a4-page{width:auto;max-width:100%;min-height:auto;padding:1.4rem 1.2rem 3rem}
+  .page-foot{left:1.2rem;right:1.2rem;bottom:.8rem}
+  .topnav-inner{padding:.6rem 1rem}
+  .topnav nav{display:none}
+  .resume-header{grid-template-columns:1fr;text-align:left}
+  .resume-header-contact{border-left:none;padding-left:0;border-top:1px dashed var(--line);padding-top:.8rem;text-align:left;min-width:0}
+  .resume-header-contact > div{justify-content:flex-start}
+  .avatar-circle{width:78px;height:100px}
+  .resume-header-name{font-size:2rem}
+  .r-2col,.r-2col-narrow{grid-template-columns:1fr;gap:1.2rem}
+  .hl-list{grid-template-columns:1fr}
+  .personal-row{grid-template-columns:repeat(2,1fr)}
+  .case-role{grid-template-columns:repeat(2,1fr);gap:.5rem}
+  .case-role-cell{border-right:none;border-bottom:1px dashed var(--line);padding-bottom:.3rem}
+  .case-study-body{grid-template-columns:1fr}
+  .case-block.span2{grid-column:span 1}
+  .diag-board{grid-template-columns:1fr}
+}
 
 /* ─── print ─── */
 @page{size:A4;margin:0}
@@ -399,51 +417,48 @@ a:hover{border-color:var(--teal-line)}
   body{background:#fff}
   .topnav,.print-hide{display:none!important}
   .doc-bg{background:#fff;padding:0}
-  .a4-page{width:210mm;height:297mm;box-sizing:border-box;overflow:hidden;clip-path:inset(0);margin:0;padding:14mm 14mm 18mm;box-shadow:none;border-radius:0;break-after:page;page-break-after:always}
-  .a4-page:last-child{break-after:auto;page-break-after:auto}
+  .a4-page{width:auto;height:297mm;box-sizing:border-box;overflow:hidden;margin:0;padding:14mm 14mm 18mm;box-shadow:none;border-radius:0;break-after:auto;page-break-after:auto}
+  /* Career compact */
+  .r-entry{margin-bottom:2mm}
+  .r-bullets{gap:.06rem}
+  .r-bullets li{font-size:.76rem}
   .a4-page.with-top-bar::before,.case-study-head,.avatar-circle,.avatar-circle::before,
   .resume-header-role,.cap-num,.sp-block,.case-block,.case-role,
   .lang-badge,.r-entry-period .tenure,.diag-layer-bar > i,.diag-layer-tag.t1,
   .diag-phase.active,.diag-board-cell{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   a{color:var(--teal-text);text-decoration:none}
+  /* ─ 모바일 CSS(max-width:880px) override ─ */
+  .resume-header{display:grid;grid-template-columns:auto 1fr auto}
+  .resume-header-contact{border-left:1px solid var(--line-soft);padding-left:1.2rem;border-top:none;padding-top:0;text-align:right;min-width:170px}
+  .resume-header-contact>div{justify-content:flex-end}
+  .avatar-circle{width:88px;height:112px}
 }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
 </head>
 <body>
 
-<div class="print-hide" id="save-overlay" style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:100;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end">
-  <button class="print-btn" onclick="window.print()"><span>⎙</span> PDF로 저장</button>
-  <button class="print-btn" id="png-btn" onclick="saveAsPNG()"><span>🖼</span> PNG로 저장</button>
-</div>
-
-<script>
-async function saveAsPNG() {
-  const btn = document.getElementById('png-btn');
-  const overlay = document.getElementById('save-overlay');
-  btn.disabled = true;
-  const pages = document.querySelectorAll('.a4-page');
-  const opt = { pixelRatio: 320 / 96, backgroundColor: '#ffffff', cacheBust: true };
-
-  for (let i = 0; i < pages.length; i++) {
-    btn.textContent = `(${i + 1}/${pages.length}) 변환 중...`;
-    overlay.style.visibility = 'hidden';
-    await new Promise(r => setTimeout(r, 50));
-
-    await htmlToImage.toPng(pages[i], opt).catch(() => {});
-    const dataUrl = await htmlToImage.toPng(pages[i], opt);
-
-    overlay.style.visibility = '';
-    const a = document.createElement('a');
-    a.download = `심동휘_이력서_p${i + 1}.png`;
-    a.href = dataUrl;
-    a.click();
-    await new Promise(r => setTimeout(r, 400));
-  }
-  btn.disabled = false;
-  btn.innerHTML = '<span>🖼</span> PNG로 저장';
-}
-</script>
+<!-- ============== TOP NAV ============== -->
+<header class="topnav print-hide">
+  <div class="topnav-inner">
+    <div class="brand">
+      <div class="brand-mark">✦</div>
+      <div>
+        <div class="brand-sub">Resume · Career Description</div>
+        <div class="brand-name">심동휘 — Game UX/UI Designer</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#page-1">이력서</a>
+      <a href="#page-2">역량 · 도구</a>
+      <a href="#case-1">Case 01</a>
+      <a href="#case-2">Case 02</a>
+      <a href="#case-3">Case 03</a>
+    </nav>
+    <button class="print-btn" onclick="window.print()">
+      <span>⎙</span> PDF로 저장
+    </button>
+  </div>
+</header>
 
 <main class="doc-bg">
 
@@ -552,7 +567,7 @@ async function saveAsPNG() {
       </ul>
     </div>
 
-    <div class="r-entry" id="entry-logwave">
+    <div class="r-entry">
       <div class="r-entry-head">
         <span>로그웨이브</span>
         <span class="r-entry-bar">|</span>
