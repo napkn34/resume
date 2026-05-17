@@ -441,12 +441,41 @@ a:hover{border-color:var(--teal-line)}
   .avatar-circle{width:88px;height:112px}
 }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
-<div class="print-hide" style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:100">
+<div class="print-hide" style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:100;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end">
   <button class="print-btn" onclick="window.print()"><span>⎙</span> PDF로 저장</button>
+  <button class="print-btn" id="png-btn" onclick="saveAsPNG()"><span>🖼</span> PNG로 저장</button>
 </div>
+
+<script>
+async function saveAsPNG() {
+  const btn = document.getElementById('png-btn');
+  btn.disabled = true;
+  btn.textContent = '저장 중...';
+  const pages = document.querySelectorAll('.a4-page');
+  for (let i = 0; i < pages.length; i++) {
+    btn.textContent = `(${i + 1}/${pages.length}) 변환 중...`;
+    const canvas = await html2canvas(pages[i], {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+      backgroundColor: '#ffffff',
+      width: pages[i].offsetWidth,
+      height: pages[i].offsetHeight,
+    });
+    const a = document.createElement('a');
+    a.download = `심동휘_이력서_p${i + 1}.png`;
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+    await new Promise(r => setTimeout(r, 300));
+  }
+  btn.disabled = false;
+  btn.innerHTML = '<span>🖼</span> PNG로 저장';
+}
+</script>
 
 <main class="doc-bg">
 
