@@ -154,7 +154,7 @@ a:hover{border-color:var(--teal-line)}
 /* ════════════════════════════════════════════
    SECTION TITLES (toned down, navy primary)
    ════════════════════════════════════════════ */
-.r-section{margin-bottom:1rem}
+.r-section{margin-bottom:.65rem}
 .r-section:last-child{margin-bottom:0}
 .r-section-title{
   font-family:"Inter","Noto Sans KR",sans-serif;
@@ -171,14 +171,14 @@ a:hover{border-color:var(--teal-line)}
 .r-section-title .meta{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.66rem;color:var(--muted);font-weight:500;letter-spacing:.02em;text-transform:none}
 
 /* Intro paragraphs */
-.resume-intro{font-size:.86rem;color:var(--body);line-height:1.72;display:flex;flex-direction:column;gap:.78rem}
+.resume-intro{font-size:.86rem;color:var(--body);line-height:1.72;display:flex;flex-direction:column;gap:.4rem}
 .resume-intro strong{color:var(--navy);font-weight:700}
-.resume-intro .lead{font-size:.92rem;color:var(--navy);font-weight:600;line-height:1.55}
+.resume-intro .lead{font-size:.88rem;color:var(--navy);font-weight:600;line-height:1.48}
 .resume-intro em.k{color:var(--teal-text);font-style:normal;font-weight:700;background:var(--teal-soft);padding:.05rem .35rem;border-radius:3px}
 
 /* Highlights — compact numbered list */
 .hl-list{display:grid;grid-template-columns:1fr 1fr;gap:.35rem .9rem}
-.hl-item{display:grid;grid-template-columns:auto 1fr;gap:.5rem;align-items:start;padding:.32rem 0;border-bottom:1px dashed var(--line-soft)}
+.hl-item{display:grid;grid-template-columns:auto 1fr;gap:.5rem;align-items:start;padding:.2rem 0;border-bottom:1px dashed var(--line-soft)}
 .hl-item:nth-last-child(-n+2){border-bottom:none}
 .hl-num{
   font-family:"Inter",sans-serif;font-weight:900;font-size:.85rem;
@@ -190,7 +190,7 @@ a:hover{border-color:var(--teal-line)}
 .hl-text em.k{color:var(--teal-text);font-style:normal;font-weight:700}
 
 /* Career entry */
-.r-entry{margin-bottom:.7rem}
+.r-entry{margin-bottom:1.5mm}
 .r-entry:last-child{margin-bottom:0}
 .r-entry-head{
   font-size:.9rem;font-weight:800;color:var(--navy);margin-bottom:.08rem;
@@ -207,8 +207,8 @@ a:hover{border-color:var(--teal-line)}
   font-size:.64rem
 }
 .r-entry-period .tenure-muted{background:var(--surface);color:var(--muted)}
-.r-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.3rem}
-.r-bullets li{font-size:.81rem;color:var(--body);line-height:1.55;padding-left:.9rem;position:relative}
+.r-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.04rem}
+.r-bullets li{font-size:.76rem;color:var(--body);line-height:1.55;padding-left:.9rem;position:relative}
 .r-bullets li::before{content:"·";position:absolute;left:.05rem;top:-.1rem;color:var(--teal-line);font-weight:900;font-size:1.2rem;line-height:1}
 .r-bullets li strong{color:var(--navy);font-weight:700}
 .r-bullets li em.k{color:var(--teal-text);font-style:normal;font-weight:700}
@@ -390,7 +390,8 @@ a:hover{border-color:var(--teal-line)}
 .live-compact-list .desc{font-size:.72rem;color:var(--body);line-height:1.6}
 .live-compact-list .desc strong{color:var(--navy);font-weight:700}
 
-/* ─── responsive ─── */
+/* 로그웨이브 bullet — page1 overflow 원인이므로 항상 숨김 */
+#entry-logwave .r-bullets{display:none}
 
 /* ─── print ─── */
 @page{size:A4;margin:0}
@@ -400,17 +401,6 @@ a:hover{border-color:var(--teal-line)}
   .doc-bg{background:#fff;padding:0}
   .a4-page{width:210mm;height:297mm;box-sizing:border-box;overflow:hidden;clip-path:inset(0);margin:0;padding:14mm 14mm 18mm;box-shadow:none;border-radius:0;break-after:page;page-break-after:always}
   .a4-page:last-child{break-after:auto;page-break-after:auto}
-  /* Page 1 compact — ABOUT/HL/Career 간격 줄여 overflow 방지 */
-  .resume-intro{gap:.4rem}
-  .resume-intro .lead{font-size:.88rem;line-height:1.48}
-  .r-section{margin-bottom:.65rem}
-  .hl-item{padding:.2rem 0}
-  /* Career compact */
-  .r-entry{margin-bottom:1.5mm}
-  .r-bullets{gap:.04rem}
-  .r-bullets li{font-size:.76rem}
-  /* 로그웨이브 bullet은 page1 overflow 원인 — print에서 숨김 */
-  #entry-logwave .r-bullets{display:none}
   .a4-page.with-top-bar::before,.case-study-head,.avatar-circle,.avatar-circle::before,
   .resume-header-role,.cap-num,.sp-block,.case-block,.case-role,
   .lang-badge,.r-entry-period .tenure,.diag-layer-bar > i,.diag-layer-tag.t1,
