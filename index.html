@@ -428,6 +428,8 @@ a:hover{border-color:var(--teal-line)}
   .r-entry{margin-bottom:1.5mm}
   .r-bullets{gap:.04rem}
   .r-bullets li{font-size:.76rem}
+  /* 로그웨이브 bullet은 page1 overflow 원인 — print에서 숨김 */
+  #entry-logwave .r-bullets{display:none}
   .a4-page.with-top-bar::before,.case-study-head,.avatar-circle,.avatar-circle::before,
   .resume-header-role,.cap-num,.sp-block,.case-block,.case-role,
   .lang-badge,.r-entry-period .tenure,.diag-layer-bar > i,.diag-layer-tag.t1,
@@ -573,7 +575,7 @@ a:hover{border-color:var(--teal-line)}
       </ul>
     </div>
 
-    <div class="r-entry">
+    <div class="r-entry" id="entry-logwave">
       <div class="r-entry-head">
         <span>로그웨이브</span>
         <span class="r-entry-bar">|</span>
