@@ -419,9 +419,14 @@ a:hover{border-color:var(--teal-line)}
   .doc-bg{background:#fff;padding:0}
   .a4-page{width:210mm;height:297mm;box-sizing:border-box;overflow:hidden;clip-path:inset(0);margin:0;padding:14mm 14mm 18mm;box-shadow:none;border-radius:0;break-after:page;page-break-after:always}
   .a4-page:last-child{break-after:auto;page-break-after:auto}
+  /* Page 1 compact — ABOUT/HL/Career 간격 줄여 overflow 방지 */
+  .resume-intro{gap:.4rem}
+  .resume-intro .lead{font-size:.88rem;line-height:1.48}
+  .r-section{margin-bottom:.65rem}
+  .hl-item{padding:.2rem 0}
   /* Career compact */
-  .r-entry{margin-bottom:2mm}
-  .r-bullets{gap:.06rem}
+  .r-entry{margin-bottom:1.5mm}
+  .r-bullets{gap:.04rem}
   .r-bullets li{font-size:.76rem}
   .a4-page.with-top-bar::before,.case-study-head,.avatar-circle,.avatar-circle::before,
   .resume-header-role,.cap-num,.sp-block,.case-block,.case-role,
