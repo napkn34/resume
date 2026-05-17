@@ -417,7 +417,8 @@ a:hover{border-color:var(--teal-line)}
   body{background:#fff}
   .topnav,.print-hide{display:none!important}
   .doc-bg{background:#fff;padding:0}
-  .a4-page{width:auto;height:297mm;box-sizing:border-box;overflow:hidden;margin:0;padding:14mm 14mm 18mm;box-shadow:none;border-radius:0;break-after:auto;page-break-after:auto}
+  .a4-page{width:210mm;height:297mm;box-sizing:border-box;overflow:hidden;clip-path:inset(0);margin:0;padding:14mm 14mm 18mm;box-shadow:none;border-radius:0;break-after:page;page-break-after:always}
+  .a4-page:last-child{break-after:auto;page-break-after:auto}
   /* Career compact */
   .r-entry{margin-bottom:2mm}
   .r-bullets{gap:.06rem}
